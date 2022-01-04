@@ -1,0 +1,28 @@
+env:
+  STACK: java
+  BUILD_TECH: java_maven
+  MVN_ARGS: clean install --batch-mode --update-snapshots verify
+  CONTINUE_ON_ERROR: false
+  CONTINUE_ON_ERROR_SETUP: true
+  JOB_STATUS_CODE: 0
+  
+name: Github-Actions-CICD-Java-Mavin
+on:
+  push:
+    branches:
+      - master
+  pull-request:
+    branches:
+      - master
+      
+jobs:
+  BuildPipeline:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+        continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
+        with: 
+          ref: ${{ github.REF }}
+          fetch-depth: 0
