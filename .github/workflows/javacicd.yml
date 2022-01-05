@@ -48,6 +48,9 @@ jobs:
               
       - uses: actions/checkout@master
       - uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
       - name: SonarQube Scan        
         uses: kitabisa/sonarqube-action@master
         with:
