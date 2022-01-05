@@ -37,7 +37,7 @@ jobs:
           
       - name: Build with maven
         id: build_java_maven
-        if: ${{ env.BUILD_TECH == java_maven }}
+        #if: ${{ env.BUILD_TECH == java_maven }}
         run: |
           mvn ${{ env.MVN_ARGS }}
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
