@@ -45,8 +45,9 @@ jobs:
       ######## JUnit Test with Maven ########
       - name: Test with Maven
         run: mvn -B test --file pom.xml
-        
+              
       - uses: actions/checkout@master
+      - uses: actions/setup-java@v2
       - name: SonarQube Scan        
         uses: kitabisa/sonarqube-action@master
         with:
