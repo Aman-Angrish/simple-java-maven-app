@@ -42,6 +42,16 @@ jobs:
           mvn ${{ env.MVN_ARGS }}
         continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
         
+      ######## JUnit Test with Maven ########
+      - name: Test with Maven
+        run: mvn -B test --file pom.xml
+        
+      - name: SonarQube Scan
+        uses: kitabisa/sonarqube-action@master
+        with:
+          host: ${{ secrets.SONARQUBE_HOST }}
+          login: ${{ secrets.SONARQUBE_TOKEN }}   
+        
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
