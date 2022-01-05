@@ -47,10 +47,7 @@ jobs:
         run: mvn -B test --file pom.xml
               
       - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B sonar:sonar -Dsonar.projectKey=Java-Maven-Jacoco-Sonar -Dsonar.projectName=Java-Maven-Jacoco-Sonar -Dsonar.host.url=http://3.141.23.89:9000 -Dsonar.login=103e87043953a8c9564be3a5fbed3a26a6d084c2
                    
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
