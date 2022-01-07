@@ -82,6 +82,7 @@ jobs:
           path: ${{ github.workspace }}/
           
   publish:
+    needs: [BuildPipeline]
     runs-on: ubuntu-latest 
     permissions: 
       contents: read
