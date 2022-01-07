@@ -20,7 +20,7 @@
   <repository>
     <id>github</id>       
     <name>Releases</name>           
-    <url>https://github.com/aman-angrish/simple-java-maven-app</url> 
+    <url>https://maven.pkg.github.com/aman-angrish/simple-java-maven-app</url> 
   </repository>
 </distributionManagement>
   
