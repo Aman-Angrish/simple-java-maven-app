@@ -103,6 +103,6 @@ jobs:
          run: mvn -B versions:set -DnewVersion=v${{github.run_number}} -DgenerateBackupPoms=false
 
        - name: Publish to GitHub Packages Apache Maven
-         run: mvn -B deploy:deploy-file -DartifactId=artifact -Dpackaging=zip -Dfile=artifact.zip -DskipTests --file pom.xml
+         run: mvn -B deploy -DartifactId=artifact -Dpackaging=zip -Dfile=artifact.zip -DskipTests --file pom.xml
          env:
            GITHUB_TOKEN: ${{ github.token }}
